@@ -1,3 +1,4 @@
+<%@page import="domain.DeptVO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.ArrayList"%>
@@ -62,6 +63,46 @@ try {
 } catch (SQLException e) {
 	e.printStackTrace();
 }
+
+pstmt = null;
+sql = "SELECT deptno, dname, loc FROM dept";
+deptno =0;
+String dname = null;
+String loc = null;
+rs = null;
+ArrayList<DeptVO> list2 = null;
+
+try {
+
+	pstmt = conn.prepareStatement(sql);
+	rs = pstmt.executeQuery(sql);
+	DeptVO vo2 = null;
+
+	if (rs.next()) {
+		list2 = new ArrayList<DeptVO>();
+		do {
+			deptno = rs.getInt("deptno");
+			dname = rs.getString("dname");
+			loc = rs.getString("loc");
+
+			vo2 = new DeptVO(deptno, dname, loc);
+			
+			list2.add(vo2);
+		} while (rs.next());
+	}// if
+	
+} catch (SQLException e) {
+	e.printStackTrace();
+}finally {
+	try {
+		pstmt.close();
+		rs.close();
+		DBConn.close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+} //finally
 %>
 <!DOCTYPE html>
 <html>
@@ -90,12 +131,19 @@ try {
 	</h3>
 	<div>
 
-		<select id="option">
-			<option disabled>선택하세요</option>
-			<option value="10">10</option>
-			<option value="20">20</option>
-			<option value="30">30</option>
-			<option value="40">40</option>
+		<select name="option" id="option">
+			<option selected disabled>선택하세요.</option>
+
+			<%
+			Iterator<DeptVO> it2 =  list2.iterator();
+			while (it2.hasNext()) {
+				DeptVO vo2 =it2.next();
+			%>
+			<option value="<%= vo2.getDeptno()%>"><%=vo2.getDname() %></option>
+			<% 
+			} // while
+			%>
+
 		</select>
 
 		<xmp class="code"> </xmp>
@@ -147,7 +195,7 @@ try {
 			<tfoot>
 				<tr>
 					<td colspan="9">
-					<button id="btn1">확인</button>
+						<button id="btn1">확인</button>
 					</td>
 				</tr>
 			</tfoot>
@@ -155,10 +203,18 @@ try {
 	</div>
 </body>
 <script>
-	$("#option").change(function() {
-		let deptno = $(this).val();
-		location.href = `ex06_emp.jsp?deptno=\${deptno}`;
-	})
+	$(function() {
+		let deptno = <%= request.getParameter("deptno")%>;
+		if (deptno == null) {
+			deptno = 10;
+		}
+		$("#option").val(deptno).prop("selected",true);
+	});
+	
+	$("#option").change(function(event) {
+	let deptno = $(this).val(); // 10,20,30,40
+	location.href = `ex06_emp.jsp?deptno=\${deptno}`;
+	});
 	$("#btn1").click(function() {
 		alert("값을 전송합니다.");
 		let selectedEmps = [];

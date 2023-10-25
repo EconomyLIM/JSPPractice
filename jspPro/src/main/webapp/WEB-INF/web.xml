@@ -9,18 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-<servlet>
+  
+<!-- <servlet>
  <description>첫번째 서블릿 샘플</description>
  <description>현재 날짜/ 시간 정보 응답</description>
  <servlet-name>Now</servlet-name>
  <servlet-class>days01.Now</servlet-class>
 </servlet>
 <servlet-mapping>
-<!-- <url-pattern>*.ss</url-pattern> -->
+<servlet-name>Now</servlet-name>
+<url-pattern>*.ss</url-pattern>
 <url-pattern>/days01/Now.html</url-pattern>
 <url-pattern>/days01/Now</url-pattern>
 <url-pattern>/days01/Now.ss</url-pattern>
-<!-- <url-pattern>*.ss</url-pattern> -->
-<servlet-name>Now</servlet-name>
-</servlet-mapping>
+<url-pattern>*.ss</url-pattern>
+</servlet-mapping> -->
+
 </web-app>

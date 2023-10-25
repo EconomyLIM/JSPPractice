@@ -34,11 +34,12 @@
     String[] empnoArray = selectedEmps.split(",");
     
     for (String empno : empnoArray) {
-        out.print(empno+"\n");
+        out.print(empno+"<br>");
     }
 }
 %>
+<a href="ex06_emp.jsp">home</a>
 	</div>
-
+	
 </body>
 </html>
