@@ -29,35 +29,23 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			[jsp 예외처리 방법]
-  			1. try ~ catch ~ finally 문 사용
-  			2. 예외 처리하는 예외 페이지를 지정할 수도 있다.
-  				ㄴ /WEB-INF 폴더 안 << 외부에서 접근할수 없는 파일들은 여기다 집어 넣는다.
-  					ㄴ error폴더 생성
-  						ㄴ viewErrorMessage.jsp
-  			3. 예외처리의 우선 순위
-  				1) page 지시자의 errorPage 속성으로 지정한 에러페이지 처리
-  				2) 예외 타입별 처리 - web.xml
-  				3) 예외 코드별 처리 - web.xml
-  				4) 웹 컨테이너가 제공하는 기본 에러 페이지
+  			ex04_02.jsp
+  			pageContext	저장 객체 == pageScope(영역)
         </xmp>
-        
         <%
-        	//? name이 없기때문에 nullPointException
-        	String name = null;
-  			try{
-  				name = request.getParameter("name");
-  	        	name = name.toUpperCase();
-  			}catch(NullPointerException e){
-  				name = "";
-  			}catch(Exception e){
-  				
-  			}
+        	// pageContext.getAttribute(name);
+        	// pageContext.setAttribute(name, value);
+        	
+        	// [pageContext로 기본 내장 객체 얻어올 수 있다.]
+        			// 사용자 정의 태그(커스텀 태그)를 구현할때
+        	// pageContext.getRequest() == request
+        	// pageContext.getResponse() == response
+        	// pageContext.getOut() ==out
+        	// pageContext.getServletConfig() == config
+        	// pageContext.getServletContext() == applcation
+        	
+        	
         %>
-        
-        name 파라미터값 : <%= name %><br>
-        <a href="ex1000.jsp">ex1000.jsp</a>
-        
     </div>
 
 </body>

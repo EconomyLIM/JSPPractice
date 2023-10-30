@@ -22,7 +22,7 @@ import days04.board.persistence.BoardDAOImpl;
 /**
  * Servlet implementation class List
  */
-@WebServlet("/cstvsboard/delete.htm")
+//@WebServlet("/cstvsboard/delete.htm")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

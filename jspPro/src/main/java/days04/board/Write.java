@@ -20,7 +20,7 @@ import days04.board.persistence.BoardDAOImpl;
 /**
  * Servlet implementation class Write
  */
-@WebServlet("/cstvsboard/write.htm")
+//@WebServlet("/cstvsboard/write.htm")
 public class Write extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

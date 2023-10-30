@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,36 +31,36 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			[jsp 예외처리 방법]
-  			1. try ~ catch ~ finally 문 사용
-  			2. 예외 처리하는 예외 페이지를 지정할 수도 있다.
-  				ㄴ /WEB-INF 폴더 안 << 외부에서 접근할수 없는 파일들은 여기다 집어 넣는다.
-  					ㄴ error폴더 생성
-  						ㄴ viewErrorMessage.jsp
-  			3. 예외처리의 우선 순위
-  				1) page 지시자의 errorPage 속성으로 지정한 에러페이지 처리
-  				2) 예외 타입별 처리 - web.xml
-  				3) 예외 코드별 처리 - web.xml
-  				4) 웹 컨테이너가 제공하는 기본 에러 페이지
+  			[세션 (session) ] - 상태 관리
+  			 쿠키 - 클라이언트
+  			 세션 - 서버
+  			 1. 세션 언제 생성되는가? 
+  			 처음 요청을 하면 세션 객체 생성
+  			 예) 교육원 상담+ 결재 + 입학
+  			 첫날 : 캐비넷 1개-> 수료날
+  			 요청 -> 세션 ->
+  			 <- 응답 JSESSIONID 쿠키값
+  			 2. session.setAttribute()
+  			 2. session.getAttribute()
         </xmp>
-        
         <%
-        	//? name이 없기때문에 nullPointException
-        	String name = null;
-  			try{
-  				name = request.getParameter("name");
-  	        	name = name.toUpperCase();
-  			}catch(NullPointerException e){
-  				name = "";
-  			}catch(Exception e){
-  				
-  			}
+        	// JSESSIONID == getID()
+        	String sid = session.getId();
+        	long l = session.getCreationTime(); 
+        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        	Date d = new Date();
+        	d.setTime(l);
+        			
         %>
-        
-        name 파라미터값 : <%= name %><br>
-        <a href="ex1000.jsp">ex1000.jsp</a>
-        
+        세션 ID = <%= sid %> <br>
+        세션 생성 날짜 = <%= sdf.format(d)%><br>
+        <%
+        	long last = session.getLastAccessedTime();
+        	d.setTime(last);
+        %>
+        세션 마지막 접속 날짜 = <%= sdf.format(d)%><br> 
     </div>
 
 </body>
+
 </html>

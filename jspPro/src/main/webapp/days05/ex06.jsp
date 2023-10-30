@@ -29,35 +29,37 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			[jsp 예외처리 방법]
-  			1. try ~ catch ~ finally 문 사용
-  			2. 예외 처리하는 예외 페이지를 지정할 수도 있다.
-  				ㄴ /WEB-INF 폴더 안 << 외부에서 접근할수 없는 파일들은 여기다 집어 넣는다.
-  					ㄴ error폴더 생성
-  						ㄴ viewErrorMessage.jsp
-  			3. 예외처리의 우선 순위
-  				1) page 지시자의 errorPage 속성으로 지정한 에러페이지 처리
-  				2) 예외 타입별 처리 - web.xml
-  				3) 예외 코드별 처리 - web.xml
-  				4) 웹 컨테이너가 제공하는 기본 에러 페이지
+  		[JS 쿠키] document.cookie 속성
+  		[jsp 쿠키]
+  		- 쿠키?
+  		클라이언트(브라우저)에 텍스트 형식의 저장된 파일
+  		- [클] -> 요청 -> [서]
+  				쿠키 함께 서버에 전송
+  		- 상태 관리
+  		- [JSP 쿠키 생성 + 처리 과정 이해]
+  			1) [클] -> 요청(쿠키) -> [서]
+  									쿠키 생성
+  					<- 응답
+  				[클]
+  				X 쿠키 저장
+  				[클] -> 요청(쿠키) -> 서버 요청
+  				<- 응답
+  				[클]
+  				X 쿠키 삭제, 수정
+  		- JS 쿠키: document.cookie 속성 생성 확장 삭제 수정
+  		- JSP 쿠키:
+  			1) Cookie 클래스 -> 쿠키 생성
+  			2) 응답 (클)
+  				reponse.addCookie(생성된 쿠키)
+  		- 쿠키 구성
+  			1) "쿠키이름= 쿠키 값: 만료시점 도메인 = localhost;_경로"
+  			만료시점 =[-1] 브라우저 닫을 때 자동 쿠키 제거 
+  			별도의 만료 시점을 설정하지 않으면 브라우저가 종료될 때 쿠키 제거
+  			
         </xmp>
         
-        <%
-        	//? name이 없기때문에 nullPointException
-        	String name = null;
-  			try{
-  				name = request.getParameter("name");
-  	        	name = name.toUpperCase();
-  			}catch(NullPointerException e){
-  				name = "";
-  			}catch(Exception e){
-  				
-  			}
-        %>
-        
-        name 파라미터값 : <%= name %><br>
-        <a href="ex1000.jsp">ex1000.jsp</a>
-        
+        <a href="ex06_02.jsp">ex06_02.jsp 쿠키 생성</a>
+        <a href="ex06_03.jsp">ex06_02.jsp 쿠키 확인</a>
     </div>
 
 </body>

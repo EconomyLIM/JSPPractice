@@ -35,28 +35,39 @@
   				ㄴ /WEB-INF 폴더 안 << 외부에서 접근할수 없는 파일들은 여기다 집어 넣는다.
   					ㄴ error폴더 생성
   						ㄴ viewErrorMessage.jsp
-  			3. 예외처리의 우선 순위
-  				1) page 지시자의 errorPage 속성으로 지정한 에러페이지 처리
-  				2) 예외 타입별 처리 - web.xml
-  				3) 예외 코드별 처리 - web.xml
-  				4) 웹 컨테이너가 제공하는 기본 에러 페이지
+  				ex01_02.jsp 페이지에서 예외가 발생하면 viewErrorMessage.jsp (예외페이지)로 이동해서
+  				클라이언트에 응답된다.
+  			3. [ WEB-INF 폴더 안에 설정파일 - web.xml] << 톰캣이 항상 시작할때 설정파일을 읽고 실행한다.
+  				1) 응답 상태 코드별로 예외 페이지 지정
+  				ex01.jsp
+  					ㄴ a  href="ex1000.jsp"
+  					ㄴ web.xml 404-> 404.jsp 설정 코딩 추가
+  					[응답 상태 코드]
+  					404: 요청 URL을 처리하기 위한 자원이 존재하지 않음
+  					500: 서버 내부 에러가 발생(자바코딩 문제)
+  					200: 요청을 정상적으로 처리
+  					401: 접근을 허용하지 않을때 
+  					400: 클라이언트의 요청이 잘못된 구문으로 구성.
+  					403: PUT 요청 X
+  					등등
+  					
+  				2) 예외 타입별로 예외 페이지 지정
+  					[예외 타입별]
+  					NullPointException
+  					~~Exception << web.xml 수정
+  					ex01_03.jsp
         </xmp>
         
         <%
         	//? name이 없기때문에 nullPointException
         	String name = null;
-  			try{
-  				name = request.getParameter("name");
-  	        	name = name.toUpperCase();
-  			}catch(NullPointerException e){
-  				name = "";
-  			}catch(Exception e){
-  				
-  			}
+  			name = request.getParameter("name");
+  	        name = name.toUpperCase();
+
         %>
         
         name 파라미터값 : <%= name %><br>
-        <a href="ex1000.jsp">ex1000.jsp</a>
+        
         
     </div>
 
