@@ -31,7 +31,7 @@
 		<span class="material-symbols-outlined">view_list</span> jsp days00
 	</h3>
 	<div>
-		<form action="ex05_05.jsp" method="get">
+		<form action="signIn_ok" method="get">
 
 			<table border="1" style="width: 400px">
 				<tr>
