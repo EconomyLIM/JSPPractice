@@ -22,24 +22,13 @@
         </h1>
         <ul>
             <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
+            <li><a href="signIn.jsp">회원가입</a></li>
             <li><a href="<%= contextPath %>/cstvsboard/list.htm">게시판</a></li>
         </ul>
     </header>
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
-        <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
-        </xmp>
+		여기는 메인입니다.
     </div>
-
 </body>
 </html>

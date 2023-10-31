@@ -29,16 +29,37 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
+  			[EL 비교 연산자]
+  			[EL 삼항 연산자]	?:
+  			[EL 논리 연산자]	&& and || or ! not
+  			
+  			[EL empty 연산자]
+  			null			true 리턴
+  			""				true 리턴
+  			0				true 리턴
+  			빈 Map			true 리턴
+  			empty list		true 리턴
+  			
+  			위의 조건을 제외한 나머지는 false 반환.	
         </xmp>
+        ${100 == 10 } <br /> ==false
+        ${100 eq 10 } <br /> ==false
+        
+        ${100 != 10 } <br /> ==true
+        <%-- ${100 ne 10 } <br /> ==true --%>
+        
+        ${100 > 10 } <br /> 
+        ${100 gt 10 } <br />
+        
+        ${100 < 10 } <br /> 
+        ${100 lt 10 } <br />
+        
+        ${100 >= 10 } <br /> 
+        ${100 ge 10 } <br />
+        
+        ${100 <= 10 } <br /> 
+        ${100 le 10 } <br />
+         
     </div>
 
 </body>

@@ -29,15 +29,11 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
+  			[코어 라이브러리]
+  			1. 제어문: c:if c: choose c:forEah 제ㅓㅇ문 + c:forTokensX
+  			2. URL 처리 - c:import, c:rediect, c:url
+  			3. 변수 지원 - c:set c:remove
+  			4. 
         </xmp>
     </div>
 

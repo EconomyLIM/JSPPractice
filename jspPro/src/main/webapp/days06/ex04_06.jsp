@@ -29,16 +29,21 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
   		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
         </xmp>
+        <%
+        	String title ="JSP-EL 수업중~";
+        	request.setAttribute("title", "범죄도시");
+        %>
+        제목: <%= title %> <br />
+        <%="제목"+ title %> <br />
+        ${ request.title } <br />
+        ${ title } <br />
+        
+        제목: ${ title } <br />
+        ${"제목" += title } <br />
+        ${1+1; 10+10 }<br>
+        ${n = 10 }<br>
     </div>
 
 </body>

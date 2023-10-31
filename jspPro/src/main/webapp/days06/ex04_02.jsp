@@ -29,16 +29,24 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
+  			
         </xmp>
+        요청 URI: <%= request.getRequestURI() %><br>
+        요청 URL: ${pageContext.request.requestURI} <br>
+        
+        <hr>
+        <%
+        	// JSP 페이지에서 requestScope에 저장
+        	request.setAttribute("name", "홍길동");
+        %> <Br>
+        name: <%= request.getAttribute("name") %> <br />
+        name(EL): ${requestScope.name} <br>
+        <!-- page. request, session, application Scope 검색 -->
+        name(EL): ${name }
+        <hr />
+        
+        age : <%= request.getParameter("age") %><br>
+        age(EL): ${param.age }<br>
     </div>
 
 </body>

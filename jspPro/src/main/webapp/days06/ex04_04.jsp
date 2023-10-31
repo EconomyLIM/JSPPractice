@@ -29,16 +29,21 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
+  			EL 산술 연산자 사용 가능
         </xmp>
+        <%-- ${10+3 }<br>
+        ${10-3 }<br>
+        ${10*3 }<br>
+        ${10/3 }<br>
+        ${10%3 }<br> 1 
+        ${10mod3 }<br> 1
+        --%>
+        
+        EL + 연산자는 기본 덧셈 기능
+        ${"10"+3 }<br> <!-- == 13 -->
+        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
+        ${null+3 }<br> <!-- == 3 -->
+
     </div>
 
 </body>

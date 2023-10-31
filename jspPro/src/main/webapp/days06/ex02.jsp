@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page trimDirectiveWhitespaces="true" session="true" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
- String contextPath = request.getContextPath();
-%>
+<%@ include file ="/WEB-INF/inc/include.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,16 +27,15 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
+  		JSP 에서 세션을 사용하는 방법: session 기본 내장 객체 
+  		서블릿에서 세션을 사용하는 방법
+  		페이지 지시자에 sesson="true"(기본값)이라서 사용가능하나 false로 설정하면 설정 X
+  		trimDirectiveWhitespaces="true" << 팀플할때 고정값 True 
+  			ㄴ 페이지 소스 보기 할때 지시자가 있던자리에 공백 사라짐
   		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
         </xmp>
+        
+        <a href=" <%= contextPath %>/days06/session.htm">서블릿+세션 방법</a>
     </div>
 
 </body>

@@ -54,7 +54,7 @@ public class View extends HttpServlet {
 			String path= "/days04/board/view.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request,response);
-		
+			
 	} // doGet
 
 

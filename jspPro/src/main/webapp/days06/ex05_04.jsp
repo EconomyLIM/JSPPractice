@@ -29,16 +29,15 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
   		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
         </xmp>
+        <c:set var ="pnum" value="${param.num }"> </c:set>
+        <c:if test="${pnum mod 2 eq 0 }">짝수</c:if>
+        <c:if test="${pnum mod 2 eq 1 }">홀수</c:if>
+        
+        <c:choose>
+        	<c:when test="${pnum mod 2 eq 0 }">짝수</c:when>
+        </c:choose>
     </div>
 
 </body>

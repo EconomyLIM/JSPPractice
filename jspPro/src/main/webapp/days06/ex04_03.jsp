@@ -1,3 +1,4 @@
+<%@page import="com.util.Cookies"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,16 +30,24 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-        [쿠키 인증 처리]
-  		days05.ex07_default,logon,logout.jsp
-  		
-  		days06.ex01.jsp
-  		[세션 인증 처리]
-  		auth.jspf 복사해서 session.jspf
-  		
-  		session.setAttribute("세션이름", 객체)
-  		session.getAttribute("세션이름")
+  			EL 에서 쿠키 사용하는 방법
         </xmp>
+        
+        <%
+        // 1. user
+        Cookie c = Cookies.createCookie("user", "admin");
+        response.addCookie(c);
+        
+     // 2. id
+        c = Cookies.createCookie("id", "hong");
+        response.addCookie(c);
+        
+     // 3. age
+        c = Cookies.createCookie("age", "20");
+        response.addCookie(c);
+        %>
+        
+        <a href="ex04_03_ok.jsp">ex04_03_ok.jsp</a>
     </div>
 
 </body>
