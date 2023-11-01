@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -18,7 +18,7 @@
 <body>
 <header class="sticky">
         <h1 class="main">
-            <a href="#">LGJ Home</a>
+            <a href="/jspPro/days07/ex03.jsp">LGJ Home</a>
         </h1>
         <ul>
             <li><a href="#">로그인</a></li>
@@ -29,22 +29,9 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  		
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
-        
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
+        <h3>글쓰기 페이지</h3>
     </div>
 
 </body>

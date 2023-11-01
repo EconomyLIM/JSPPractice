@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -29,22 +29,35 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  			c:forEach 
+  				ㄴ begin="" 루프 시작값
+  				ㄴ end="" 루프 끝값
+  				ㄴ items="" 루프 Map, 배열, 컬렉션 대상 객체
+  				ㄴ step="" 루프 증가치
+  				ㄴ var="" 변수명
+  				ㄴ varStatus=""
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
+        <c:set var="sum" value="0"></c:set>
+        <c:forEach begin="1" end="10" step="1" var="i" varStatus="status">
+			<c:if test=" ${i eq 10 } ">${i }</c:if>
+        	<c:if test=" ${i ne 10 } ">${i += " + "}</c:if>
+        	
+        	<%-- <c:choose>
+        		<c:when test=""></c:when>
+        		<c:otherwise></c:otherwise>
+        	</c:choose> --%>
+        	
+        	<%-- ${i += (i== status.last?"":"+") } --%>
+        	
+        	<c:set var="sum" value="${sum+i}"></c:set>
+        </c:forEach>
+         = ${sum }
         
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
+        <hr />
+        <!-- status.current도 있음 -->
+        <c:forEach begin="5" end="12" var="i" step="2" varStatus="status">
+        ${i } - ${status.index } - ${status.count } - ${status.first } - ${status.last }<br>
+        </c:forEach>
     </div>
 
 </body>

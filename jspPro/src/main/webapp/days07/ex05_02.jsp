@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -29,23 +29,30 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  		
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
-        
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
+        <input type="button" value="jquery ajax"/>
+        <p id="demo"></p>
     </div>
 
 </body>
+<script>
+	$(function() {
+		$("input").on("click", function() {
+			$("#demo").load(
+					'ex05_ajax_info.txt'
+					,function(responseText, textStatus, jqXHR){
+						if (textStatus == "sucess") {
+							var rtext = httpRequest.responseText;
+							let names = rtext.split(",");
+							for(let name of names){
+								$("#demo").append($("<li></li>").text(name));
+							}
+						}else if (textStatus == "error") {
+							alert("error")
+						}  /* elseif */
+					})		
+		})
+	});
+</script>
 </html>

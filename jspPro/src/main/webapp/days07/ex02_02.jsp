@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -29,22 +29,14 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  		
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
+        <form action="ex02_02_ok.jsp" method="post">
+        한글이름: <input type="text" value="홍길동" name="fname"/> <br />
+        나이: <input type="text"  value="20" name = "age"/> <br />
+        <input type="submit" />
+        </form>
         
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
     </div>
 
 </body>

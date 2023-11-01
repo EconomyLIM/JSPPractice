@@ -1,6 +1,7 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="/jspPro/resources/cdn-main/example.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/jspPro/resources/cdn-main/example.js"></script>
+    <script src="httpRequest.js"></script>
 </head>
 <body>
 <header class="sticky">
@@ -29,23 +31,31 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  		
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
-        
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
+        처음 ex07.jsp 요청한 시간: <%= new Date().toLocaleString() %>
+        <br>
+        <br>
+        <input type="button" value="emp sal top5" onclick="getTop5();"/>
+        <br />
+        <p id="demo"></p>
     </div>
 
 </body>
+<script>
+let timer = null;
+function getTop5() {
+	sendRequest("ex07_top5.jsp", null, callback, "GET");
+	/* timer = setTimeout(getTop5,1000); */
+}
+function callback(){ 
+	if(httpRequest.readyState == 4) { 
+		if(httpRequest.status==200) {
+			$("#demo").html( httpRequest.responseText);
+		} else{
+			alert("에이작스 실패 : " + httpRequest.status);
+		}
+	} //if
+}//callback
+</script>
 </html>

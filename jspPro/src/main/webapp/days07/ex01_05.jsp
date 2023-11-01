@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
  String contextPath = request.getContextPath();
 %>
@@ -29,22 +30,26 @@
     <h3><span class="material-symbols-outlined">view_list</span> jsp days00</h3>
     <div>
         <xmp class="code">
-  			EL 산술 연산자 사용 가능
+  			JSTL은 EL에서 사용할 수 있는 함수를 제공하고 있다
         </xmp>
-        <%-- 
-        ${10+3 }<br>
-        ${10-3 }<br>
-        ${10*3 }<br>
-        ${10/3 }<br>
-        ${10%3 }<br> 1 
-        ${10mod3 }<br> 1
-        --%>
-        
-        EL + 연산자는 기본 덧셈 기능
-        <%-- ${"10"+3 }<br> <!-- == 13 --> --%>
-        <%-- ${"한글"+3 }<br> <!-- == Numberformatexception --> --%>
-        <%-- ${null+3 }<br> <!-- == 3 --> --%> 
-
+        <%
+        	String message = "<h3>Hello World</h3><br />홍길동<br/>";
+        %>
+        <c:set value="<%=message %>" var="msg"></c:set>
+        ${msg }<br>
+        ${fn:length( msg) }<br>
+        ${fn:toUpperCase(msg)}<br>
+        ${fn:toLowerCase(msg)}<br>
+        ${fn:substring(msg) }<br>
+        ${fn:contains(msg) }<br>
+        ${fn:trim(msg) }<br>
+        등등
+        fn:replace()
+        fn:startWith()
+        fn:endsWith()
+        fn:split()
+        fn:join()
+        fn:escapeXml
     </div>
 
 </body>
