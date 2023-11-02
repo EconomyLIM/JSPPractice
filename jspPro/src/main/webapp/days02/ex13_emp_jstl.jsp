@@ -82,6 +82,7 @@
 				</tr>
 			</tfoot>
 		</table>
+		td
     </div>
 
 </body>
