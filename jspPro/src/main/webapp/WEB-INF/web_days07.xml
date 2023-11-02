@@ -36,25 +36,15 @@
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
 	
-	
-<servlet>
-      <description>서블릿 3.0 파일업로드 테스트</description>
-      <servlet-name>uploadServlet</servlet-name>
-      <servlet-class>days08.UploadServlet</servlet-class>
-      <multipart-config>
-         <!-- 업로드한 파일이 임시로 저장될 위치, 기본값: "" -->
-         <location>C:\apache-tomcat-8.5.93\temp</location>
-         <!-- 업로드 가능한 최대 파일크기(byte),  기본: -1: 무제한 -->
-         <max-file-size>-1</max-file-size>
-         
-         <max-request-size>-1</max-request-size>
-         <!-- 1024크기 보다 업로드 파일의 크기가 클 때 임시 파일 생성 -->
-         <file-size-threshold>1024</file-size-threshold>
-      </multipart-config>
-   </servlet>
-   <servlet-mapping>
-      <servlet-name>uploadServlet</servlet-name>
-      <url-pattern>/days08/upload</url-pattern>
-   </servlet-mapping>
-
+	<filter>
+		<description>days07.post.인증, 권한</description>
+		<filter-name>loginCheckFilter</filter-name>
+		<filter-class>com.filter.LoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>loginCheckFilter</filter-name>
+		<url-pattern>/days07/admin/*</url-pattern>
+		<url-pattern>/days07/board/write.jsp</url-pattern> <!-- 정확한 경로 -->
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
 </web-app>
