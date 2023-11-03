@@ -33,7 +33,7 @@ public class ListHandler implements CommandHandler{
 			searchCondition =Integer.parseInt(request.getParameter("searchCondition"));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}//try- catch
+		}//try-catch
 
 		String searchWord = request.getParameter("searchWord");
 		// 아무것도 없으면 null이다.
